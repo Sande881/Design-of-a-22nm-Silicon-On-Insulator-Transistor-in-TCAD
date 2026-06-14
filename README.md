@@ -11,7 +11,7 @@
 ### 1.3 Goals & Objectives
 * Symmetric Geometric Scaling: Transition a functional long-channel device blueprint into a scaled 22nm layout spanning an exact $0.122\ \mu\text{m}$ lateral horizontal dimension.
 * Electrostatic Recovery: Diagnose structural causes behind an unoptimized subthreshold leakage bottleneck and implement layout parameters to suppress Short-Channel Effects (SCE).
-* Target Performance Extraction: Achieve a clean, well-behaved $I_d\text{--}V_g$ transfer characteristic curve with a significantly improved Subthreshold Swing ($SS$) metric.
+* Target Performance Extraction: Achieve a clean, well-behaved $I_d\text{-}V_g$ transfer characteristic curve with a significantly improved Subthreshold Swing ($SS$) metric.
 
 ### 1.4 Key Features
 * Localized high-density grid mesh alignment tailored specifically around critical channel-junction boundaries.
