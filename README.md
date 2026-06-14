@@ -25,8 +25,8 @@
 ### 2.2 Software & Tools
 * **Silvaco TCAD Suite (Acqured on nanoHUB)**
   * DeckBuild:Interactive script compiler for writing and processing structured command lines.
-  Victory Device Advanced multi-dimensional semiconductor physics execution engine.
-  * Victory Visual High-fidelity plotting and analytical scaling visualization utility.
+  * Victory Device: Advanced multi-dimensional semiconductor physics execution engine.
+  * Victory Visual: High-fidelity plotting and analytical scaling visualization utility.
 
 ### 2.3 Constraints & Challenges
 * Grid Node Allocation Boundaries: Misaligning coordinate declarations risks creating non-physical element gaps or mesh errors during structural initialization.
@@ -55,11 +55,7 @@
 
 ## 4. Development Process
 
-### 4.1 Initial Steps
-* Initialized the foundational spatial boundaries using precise grid node spacing lines to establish an optimized environment.
-* Dense grid nodes were placed near interfaces (spacing equal to $0.002\ \mu\text{m}$ laterally at channel edges and $0.001\ \mu\text{m}$ vertically at the channel inversion boundary) to resolve fast-changing potential gradients accurately.
-
-### 4.2 Iterative Development
+### 4.1 Iterative Development
 
 #### Phase A: Unoptimized 22nm Device Characterization
 * Built the initial 22nm gate length configuration over a standard $20\text{ nm}$ thick silicon body layer.
@@ -69,6 +65,25 @@
 #### Phase B: Ultra-Thin Body (UTB) Optimization
 * Adjusted the physical geometry deck to systematically trim down the silicon body layer thickness from $20\text{ nm}$ to a target **$7\text{ nm}$** profile.
 * Compiled the updated file through the solver grid arrays, yielding an optimized transfer characteristic response.
+
+#### Calculation of Unoptimized 22nm Device Baseline 
+Taking data points from the initial logarithmic sweep:
+* Point 1: $V_{g1} = 0.0\text{ V} \rightarrow I_{d1} \approx 6.0 \times 10^{-5}\text{ A}$
+* Point 2: $V_{g2} = 0.5\text{ V} \rightarrow I_{d2} \approx 5.5 \times 10^{-4}\text{ A}$
+
+$$SS_{\text{unoptimized}} = \frac{0.5\text{ V} - 0.0\text{ V}}{\log_{10}(5.5 \times 10^{-4}) - \log_{10}(6.0 \times 10^{-5})} \approx \mathbf{520\text{ mV/decade}}$$
+
+* Analysis: The exceptionally wide swing of $520\text{ mV/dec}$ indicates severe Drain-Induced Barrier Lowering (DIBL). The drain's lateral electric field penetrates deep into the thick silicon body, lowering the energy barrier from below and rendering the gate unable to fully shut off the channel.
+
+#### Calculation of Optimized FD-SOI Device Layer
+Taking data points from the optimized design run profile:
+* Point 1: $V_{g1} = 0.0\text{ V} \rightarrow I_{d1} \approx 6.5 \times 10^{-7}\text{ A}$
+* Point 2: $V_{g2} = 0.2\text{ V} \rightarrow I_{d2} \approx 1.0 \times 10^{-5}\text{ A}$
+
+$$SS_{\text{optimized}} = \frac{0.2\text{ V} - 0.0\text{ V}}{\log_{10}(1.0 \times 10^{-5}) - \log_{10}(6.5 \times 10^{-7})} \approx \mathbf{168.5\text{ mV/decade}}$$
+
+* Analysis: Thinning the active body down to a thin 7nm dimension chokes off subterranean leakage paths. The physical volume becomes Fully Depleted, forcing vertical gate field lines to couple tightly through the entire channel down to the buried oxide boundary. This isolates the channel from parasitic lateral drain fields, dramatically sharpening the subthreshold slope down to $168.5\text{ mV/dec}$.
+
 
 ---
 
@@ -85,22 +100,5 @@
 ### 5.2 Performance & Reliability
 Analytical extraction calculations were applied directly to the subthreshold slope characteristics across both engineering design loops:
 
-#### Calculation 1: Unoptimized 22nm Device Baseline ($T_{Si} = 20\text{ nm}$)
-Taking data points from the initial logarithmic sweep:
-* Point 1: $V_{g1} = 0.0\text{ V} \rightarrow I_{d1} \approx 6.0 \times 10^{-5}\text{ A}$
-* Point 2: $V_{g2} = 0.5\text{ V} \rightarrow I_{d2} \approx 5.5 \times 10^{-4}\text{ A}$
-
-$$SS_{\text{unoptimized}} = \frac{0.5\text{ V} - 0.0\text{ V}}{\log_{10}(5.5 \times 10^{-4}) - \log_{10}(6.0 \times 10^{-5})} \approx \mathbf{520\text{ mV/decade}}$$
-
-* Analysis: The exceptionally wide swing of $520\text{ mV/dec}$ indicates severe Drain-Induced Barrier Lowering (DIBL). The drain's lateral electric field penetrates deep into the thick silicon body, lowering the energy barrier from below and rendering the gate unable to fully shut off the channel.
-
-#### Calculation 2: Optimized FD-SOI Device Layer ($T_{Si} = 7\text{ nm}$)
-Taking data points from the optimized design run profile:
-* Point 1: $V_{g1} = 0.0\text{ V} \rightarrow I_{d1} \approx 6.5 \times 10^{-7}\text{ A}$
-* Point 2: $V_{g2} = 0.2\text{ V} \rightarrow I_{d2} \approx 1.0 \times 10^{-5}\text{ A}$
-
-$$SS_{\text{optimized}} = \frac{0.2\text{ V} - 0.0\text{ V}}{\log_{10}(1.0 \times 10^{-5}) - \log_{10}(6.5 \times 10^{-7})} \approx \mathbf{168.5\text{ mV/decade}}$$
-
-* Analysis: Thinning the active body down to a thin 7nm dimension chokes off subterranean leakage paths. The physical volume becomes Fully Depleted, forcing vertical gate field lines to couple tightly through the entire channel down to the buried oxide boundary. This isolates the channel from parasitic lateral drain fields, dramatically sharpening the subthreshold slope down to $168.5\text{ mV/dec}$.
 
 ---
