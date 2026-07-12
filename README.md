@@ -6,14 +6,14 @@
 22nm FD-SOI Geometry & Mesh Engineering Optimization
 
 ### 1.2 Description
-* Silicon on Insulator (SOI) technology consists of a layered structure where a thin silicon layer is separated from the bulk silicon substrate by an insulating layer. This insulating layer, often made of silicon dioxide, is crucial for minimizing parasitic capacitance, which can hinder the performance of electronic devices. Fully Depleted refers to the use of the entire thickness of the silicon layer is used as the channel, which means that it does not require channel doping due to the channel layer being very thin.
+Silicon on Insulator (SOI) technology consists of a layered structure where a thin silicon layer is separated from the bulk silicon substrate by an insulating layer. This insulating layer, often made of silicon dioxide, is crucial for minimizing parasitic capacitance, which can hinder the performance of electronic devices. Fully Depleted refers to the use of the entire thickness of the silicon layer is used as the channel, which means that it does not require channel doping due to the channel layer being very thin.
 
 <img width="800" height="300" alt="image" src="https://github.com/user-attachments/assets/54dd21ca-cd86-4999-a87e-c7054f45b2bd" />
 
 (source of image: https://www.slideshare.net/slideshow/silicon-on-insulator-soi-technology/83737859)
 
 
-* Using Silvaco TCAD (Victory Device), from nanoHUB, the project systematically scales a legacy 50nm baseline design down to a 22nm physical gate length ($L_g$) Fully-Depleted Silicon-On-Insulator. The primary focus is tracking short-channel degradation phenomena, such as Drain-Induced Barrier Lowering (DIBL) and capacitive charge sharing, and optimizing the physical device layers to reclaim tight electrostatic control over subthreshold transport.
+Using Silvaco TCAD (Victory Device), from nanoHUB, the project systematically scales a legacy 50nm baseline design down to a 22nm physical gate length ($L_g$) Fully-Depleted Silicon-On-Insulator. The primary focus is tracking short-channel degradation phenomena, such as Drain-Induced Barrier Lowering (DIBL) and capacitive charge sharing, and optimizing the physical device layers to reclaim tight electrostatic control over subthreshold transport.
 
 ### 1.3 Goals & Objectives
 This project aims to:
