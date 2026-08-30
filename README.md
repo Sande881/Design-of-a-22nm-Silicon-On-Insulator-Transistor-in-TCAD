@@ -56,9 +56,9 @@ We start by launching Victory TCAD Lab via nanoHUB, and run a script for a refer
 
 - I<sub>on</sub> = 5.7374 x 10<sup>-4</sup> A 
 - I<sub>off</sub> = 2.18297 x 10<sup>-10</sup> A
-- $$\frac{I<sub>on</sub>}{I<sub>off</sub>}$$ = 2.620691 x 10<sup>6<sup>
+- \frac{I<sub>on</sub>}{I<sub>off</sub>} = 2.620691 x 10<sup>6<sup>
 - Threshold Voltage(V<sub>th</sub>) =
-- Subthreshold Swing (SS) = $$\frac{\Delta V_G}{\Delta \log_{10}(I_D)}$$ = 81.59\text{mV/dec}
+- Subthreshold Swing (SS) = $$\frac{\Delta V_G}{\Delta \log_{10}(I_D)}$$ = 81.59 mV/dec
 - Drain-Induced Barrier Lowering (DIBL) = 
 
 
