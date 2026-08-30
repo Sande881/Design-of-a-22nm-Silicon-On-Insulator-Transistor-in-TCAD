@@ -36,13 +36,33 @@ This project aims to:
 
 ## 3. Development Process
 ### 3.1 Initial Steps
-We start by launching Victory TCAD Lab via nanoHUB, and run a script for a reference 2D Silicon-On-Insulator NMOS Transistor of 50 nm of Gate Length ($L_g$) and 7 nm silicon channel thickness. The script shall be written as such:
+We start by launching Victory TCAD Lab via nanoHUB, and run a script for a reference 2D Silicon-On-Insulator NMOS Transistor of 50 nm of Gate Length ($L_g$) and 5 nm silicon channel thickness. This is our base, which we optimize to get our intended final device.
+
+#### Structure:
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/e1469e37-3b6f-4f6c-8bb7-55c52c66e573" />
+
+#### Doping Profile:
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/2950ce2a-b034-417e-8cb6-4d0da957bd43" />
+
+#### I<sub>d</sub>-V<sub>g</sub> Plots
+
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/1c99ed83-22d3-43bd-a3b8-3d1b546c9cdf" />
+
+* Log I<sub>d</sub>-V<sub>g</sub> Plot:
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/f31d7fbe-0254-4716-90d7-6794c4f2e781" />
+
+
+#### Parameters:
+
+- I<sub>on</sub> = 5.7374 x 10<sup>-4</sup> A 
+- I<sub>off</sub> = 2.18297 x 10<sup>-10</sup> A
+- $$\frac{I<sub>on</sub>}{I<sub>off</sub>}$$ = 2.620691 x 10<sup>6<sup>
+- Threshold Voltage(V<sub>th</sub>) =
+- Subthreshold Swing (SS) = $$\frac{\Delta V_G}{\Delta \log_{10}(I_D)}$$ = 81.59\text{mV/dec}
+- Drain-Induced Barrier Lowering (DIBL) = 
 
 
 
-Now we get the following,
-
-* Structure:
 
   
   
