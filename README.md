@@ -67,12 +67,21 @@ We start by launching Victory TCAD Lab via nanoHUB, and run a script for a refer
 - Subthreshold Swing (SS) = $$\frac{\Delta V_G}{\Delta \log_{10}(I_D)}$$ = 81.59 mV/dec
 - Drain-Induced Barrier Lowering (DIBL) = 55.94 mV/V
 
-With our base parameters established, we now scale down the gate length to 22 nm. Retaining the original 5 nm of body thickness will result in poor electrostatic control, causing severe short-channel effects and degrading our subthreshold swing, thus we will scale it down to 3 nm of body thickness. We will also tighten our oxide thickness to 1.5 nm so that the gate retains dominant control over the channel.
+## 3.2 Development
+With our base parameters established, we now scale down the gate length to 22 nm. Retaining the original 5 nm of body thickness will result in poor electrostatic control, causing severe short-channel effects and degrading our subthreshold swing, thus we will scale it down to 3 nm of body thickness. We tighten our oxide thickness to 1.5 nm so that the gate retains dominant control over the channel, and increase our doping concentration to drain's depletion region from punching straight through to the source.
 
 ## Structure:
 
 
+### Comparison of 3 nm vs 5 nm body thickness
+- *Describe stress tests, benchmarks, and overall performance analysis.*
 
+### Key Decisions & Changes
+- *Document major design changes and why they were made.*
+
+### Issues & Solutions
+- **Issue:** *Describe the problem.*
+  - **Solution:** *Describe how it was solved.*
 
 
 
