@@ -3,7 +3,7 @@
 ## 1. Project Overview
 
 ### 1.1 Project Name
-22nm FD-SOI Geometry & Mesh Engineering Optimization
+Optimized 22nm Fully Depleted Silicon-on-Insulator NMOS Transistor
 
 ### 1.2 Description
 Silicon on Insulator (SOI) technology consists of a layered structure where a thin silicon layer is separated from the bulk silicon substrate by an insulating layer. This insulating layer, often made of silicon dioxide, is crucial for minimizing parasitic capacitance, which can hinder the performance of electronic devices. Fully Depleted refers to the use of the entire thickness of the silicon layer is used as the channel, which means that it does not require channel doping due to the channel layer being very thin.
