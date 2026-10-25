@@ -71,13 +71,40 @@ We start by launching Victory TCAD Lab via nanoHUB, and run a script for a refer
 With our base parameters established, we now scale down the gate length to 22 nm. Retaining the original 5 nm of body thickness will result in poor electrostatic control, causing severe short-channel effects and degrading our subthreshold swing, thus we will scale it down to 3 nm of body thickness. We tighten our oxide thickness to 1.5 nm so that the gate retains dominant control over the channel, and increase our doping concentration to drain's depletion region from punching straight through to the source.
 
 ## Structure:
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/ac662c27-c471-4fac-8b4d-f8edd0e43a3b" />
+
+#### Doping Profile:
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/332abf11-5448-4a9e-8f2e-ca1a2e189a67" />
+
+#### I<sub>d</sub>-V<sub>g</sub> Plots
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/36eb994b-5ba5-4b45-acbb-67e3cb700ea3" />
+
+* Log I<sub>d</sub>-V<sub>g</sub> Plot:
+
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/bf4a9d02-a9d3-4235-a914-5d04ec2efecf" />
 
 
-### Comparison of 3 nm vs 5 nm body thickness
-- *Describe stress tests, benchmarks, and overall performance analysis.*
+* Low and High Drain Bias Log I<sub>d</sub>-V<sub>g</sub> Plot:
+
+#### Parameters:
+
+- I<sub>on</sub> = 5.22214 x 10<sup>-4</sup> A 
+- I<sub>off</sub> = 8.53338 x 10<sup>-13</sup> A
+- $$\frac{I_on}{I_off}$$ = 6.1196619 x 10<sup>8<sup>
+- Threshold Voltage(V<sub>th</sub>) at Linear Bias =  V
+- Threshold Voltage(V<sub>th</sub>) at Saturation Bias =  V
+- Subthreshold Swing (SS) = $$\frac{\Delta V_G}{\Delta \log_{10}(I_D)}$$ =  mV/dec
+- Drain-Induced Barrier Lowering (DIBL) =  mV/V
+
+
+
+### Comparison of 3 nm vs 5 nm body thickness :
+
 
 ### Key Decisions & Changes
-- *Document major design changes and why they were made.*
+- Added Light-Doped Drain
+- Added Dielectric sidewalls
+- Put high-k dielectric Hafnium Oxide (HfO2) for Gate Oxide
 
 ### Issues & Solutions
 - **Issue:** *Describe the problem.*
