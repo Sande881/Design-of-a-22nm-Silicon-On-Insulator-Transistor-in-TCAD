@@ -51,15 +51,27 @@ We start by launching Victory TCAD Lab via nanoHUB, and run a script for a refer
 * Log I<sub>d</sub>-V<sub>g</sub> Plot:
 <img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/f31d7fbe-0254-4716-90d7-6794c4f2e781" />
 
+* Low and High Drain Bias Log I<sub>d</sub>-V<sub>g</sub> Plot:
+
+<img width="1200" height="900" alt="image" src="https://github.com/user-attachments/assets/9f39817b-eda7-4f55-96b8-aee80bca0065" />
+
+
 
 #### Parameters:
 
 - I<sub>on</sub> = 5.7374 x 10<sup>-4</sup> A 
 - I<sub>off</sub> = 2.18297 x 10<sup>-10</sup> A
 - $$\frac{I_on}{I_off}$$ = 2.620691 x 10<sup>6<sup>
-- Threshold Voltage(V<sub>th</sub>) =
+- Threshold Voltage(V<sub>th</sub>) at Linear Bias = 0.260 V
+- Threshold Voltage(V<sub>th</sub>) at Saturation Bias = 0.210 V
 - Subthreshold Swing (SS) = $$\frac{\Delta V_G}{\Delta \log_{10}(I_D)}$$ = 81.59 mV/dec
-- Drain-Induced Barrier Lowering (DIBL) = 
+- Drain-Induced Barrier Lowering (DIBL) = 55.94 mV/V
+
+With our base parameters established, we now scale down the gate length to 22 nm. Retaining the original 5 nm of body thickness will result in poor electrostatic control, causing severe short-channel effects and degrading our subthreshold swing, thus we will scale it down to 3 nm of body thickness. We will also tighten our oxide thickness to 1.5 nm so that the gate retains dominant control over the channel.
+
+## Structure:
+
+
 
 
 
