@@ -1,0 +1,83 @@
+go victorydevice
+
+# Mesh specification
+mesh space.mult=1
+x.mesh loc=0.00 spac=0.01
+x.mesh loc=0.05 spac=0.002
+x.mesh loc=0.10 spac=0.002
+x.mesh loc=0.15 spac=0.01
+y.mesh loc=-0.003 spac=0.001
+y.mesh loc=0.000 spac=0.0005
+y.mesh loc=0.003 spac=0.0005
+y.mesh loc=0.008 spac=0.0005
+y.mesh loc=0.028 spac=0.005
+y.mesh loc=0.100 spac=0.02
+
+# Gate stack and metal contacts
+region number=1 material=polysilicon x.min=0.05 x.max=0.10 y.min=-0.003 y.max=0.000
+region number=2 material=oxide       x.min=0.05 x.max=0.10 y.min=0.000  y.max=0.003
+region number=3 material=aluminum    x.min=0.00 x.max=0.04 y.min=0.001  y.max=0.003
+region number=4 material=aluminum    x.min=0.11 x.max=0.15 y.min=0.001  y.max=0.003
+
+# Ambient air regions
+region number=5 material=air x.min=0.00 x.max=0.04 y.min=-0.003 y.max=0.001
+region number=6 material=air x.min=0.11 x.max=0.15 y.min=-0.003 y.max=0.001
+region number=7 material=air x.min=0.04 x.max=0.05 y.min=-0.003 y.max=0.003
+region number=8 material=air x.min=0.10 x.max=0.11 y.min=-0.003 y.max=0.003
+
+# Active channel, BOX, and substrate handle
+region number=9  material=silicon x.min=0.00 x.max=0.15 y.min=0.003 y.max=0.008
+region number=10 material=oxide   x.min=0.00 x.max=0.15 y.min=0.008 y.max=0.028
+region number=11 material=silicon x.min=0.00 x.max=0.15 y.min=0.028 y.max=0.100
+
+# Electrodes
+electrode name=gate      region=1
+electrode name=source    region=3
+electrode name=drain     region=4
+electrode name=substrate bottom
+
+# Doping profiles
+doping uniform p.type concentration=1e16 x.min=0.05 x.max=0.10 y.min=0.003 y.max=0.008
+doping uniform n.type concentration=1e20 x.min=0.00 x.max=0.05 y.min=0.003 y.max=0.008
+doping uniform n.type concentration=1e20 x.min=0.10 x.max=0.15 y.min=0.003 y.max=0.008
+
+# Physics models, gate workfunction, and structure output
+models srh fldmob fermi
+contact name=gate workfunction=4.7
+structure outfile=soi_50nm_structure.str
+
+# gate voltage bias sweep
+solve init
+solve vgate=0.0 vdrain=0.1 vsource=0.0 vsubstrate=0.0
+log outfile=soi_2D.log
+solve vgate=0.0 vstep=0.05 vfinal=1.2 name=gate
+log off
+
+# Low drain bias sweep
+solve init
+solve vgate=0.0 vdrain=0.1 vsource=0.0 vsubstrate=0.0
+log outfile=soi_vds_low.log
+solve vgate=0.0 vstep=0.02 vfinal=1.2 name=gate
+log off
+
+# High drain bias sweep
+solve init
+solve vgate=0.0 vsource=0.0 vsubstrate=0.0
+solve vdrain=0.0 vstep=0.25 vfinal=1.0 name=drain
+log outfile=soi_vds_high.log
+solve vgate=0.0 vstep=0.02 vfinal=1.2 name=gate
+log off
+
+# Parameter extraction
+# Threshold Voltage at linear drain bias
+extract init inf="soi_vds_low.log"
+extract name="Vth_low" x.val from curve(v."gate", abs(i."drain")) where y.val=1e-7
+
+#Threshold Voltage at saturation
+extract init inf="soi_vds_high.log"
+extract name="Vth_high" x.val from curve(v."gate", abs(i."drain")) where y.val=1e-7
+
+#DIBL
+extract name ="DIBL_mV" ($"Vth_low" - $"Vth_high") / (1.0 - 0.1) * 1000
+
+quit
